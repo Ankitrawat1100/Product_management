@@ -1,3 +1,10 @@
+"""
+emailer.py
+-----------
+Handles sending email notifications when products are created.
+Runs in a background thread to avoid blocking the API.
+"""
+
 import logging
 import smtplib
 from email.message import EmailMessage
@@ -9,6 +16,17 @@ log = logging.getLogger(__name__)
 
 
 def _send_email(product: Product):
+    """
+    Send an email notification when a product is created.
+
+    Args:
+        product (Product): The product object that was created.
+
+    Notes:
+        - Runs in a background thread.
+        - Skips sending emails when TESTING=1.
+    """
+    
     cfg = current_app.config
     msg = EmailMessage()
     msg["Subject"] = f"New Product Created: {product.name}"

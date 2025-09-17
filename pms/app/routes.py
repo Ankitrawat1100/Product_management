@@ -1,3 +1,9 @@
+"""
+routes.py
+----------
+Defines Flask API routes for CRUD operations and batch stock calculation.
+"""
+
 from flask import Blueprint, request, jsonify, current_app
 from werkzeug.exceptions import HTTPException
 from .crud import (
@@ -14,6 +20,9 @@ bp = Blueprint("api", __name__)
 
 @bp.post("/products")
 def create_product_route():
+    """
+    Create a new product and trigger email notification.
+    """
     data = request.get_json(force=True, silent=True) or {}
     product = create_product(
         name=data.get("name"),

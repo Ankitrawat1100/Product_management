@@ -1,5 +1,11 @@
-import os
+"""
+config.py
+----------
+Centralized configuration file for Flask app.
+Defines database URI, SMTP settings, and logging configuration.
+"""
 
+import os
 
 class Config:
     # Database

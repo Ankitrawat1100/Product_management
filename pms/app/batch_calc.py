@@ -1,3 +1,9 @@
+"""
+batch_calc.py
+--------------
+Implements total stock calculation using threading, processes, and asyncio.
+"""
+
 import asyncio
 import math
 from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
@@ -20,6 +26,10 @@ def _batches(items, size):
 
 
 def total_stock_threaded(batch_size: int = 10) -> int:
+    """
+    Calculate total stock using ThreadPoolExecutor.
+    """
+    
     products = _fetch_all_products()
     total = 0
     with ThreadPoolExecutor() as pool:
@@ -49,5 +59,5 @@ def total_stock_asyncio(batch_size: int = 10) -> int:
         coros = [_async_sum(b) for b in batches]
         results = await asyncio.gather(*coros)
         return sum(results)
-
+    
     return asyncio.run(runner())

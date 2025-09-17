@@ -5,6 +5,15 @@ from .exceptions import register_error_handlers
 from .models import db
 from .routes import bp as api_bp
 
+"""
+    Create and configure the Flask application.
+
+    Args:
+        config_class: A configuration class with app settings (DB, mail, logging).
+
+    Returns:
+        Flask: The initialized Flask application object.
+    """
 
 def create_app(config_object: type = Config) -> Flask:
     configure_logging()

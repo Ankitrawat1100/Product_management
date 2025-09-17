@@ -1,3 +1,9 @@
+"""
+scraper.py
+-----------
+Scrapes product data from e-commerce pages using requests + BeautifulSoup.
+"""
+
 import logging
 from typing import List, Optional
 import requests

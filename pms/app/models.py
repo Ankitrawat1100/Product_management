@@ -1,8 +1,23 @@
+"""
+models.py
+----------
+Defines SQLAlchemy ORM models for the Product Management System.
+"""
+
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Numeric
 
 db = SQLAlchemy()
 
+"""
+    Product model representing items in the inventory.
+
+    Attributes:
+        id (int): Primary key.
+        name (str): Product name.
+        qty (int): Quantity in stock.
+        price (float): Unit price.
+    """
 
 class Product(db.Model):
     __tablename__ = "products"

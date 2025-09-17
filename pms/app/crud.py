@@ -1,8 +1,17 @@
+"""
+crud.py
+--------
+Contains CRUD (Create, Read, Update, Delete) database operations for Product.
+"""
+
 from typing import List, Optional, Tuple
 from sqlalchemy.exc import IntegrityError
 from .models import db, Product
 from .exceptions import ConflictError, NotFoundError, BadRequestError
 
+"""
+    Create a new product and save it to the database.
+"""
 
 def create_product(name: str, qty: int, price: float) -> Product:
     if qty < 0 or price < 0:
@@ -17,12 +26,18 @@ def create_product(name: str, qty: int, price: float) -> Product:
     return product
 
 
+"""
+    Retrieve a product by its ID.
+"""
 def get_product(product_id: int) -> Product:
     product = Product.query.get(product_id)
     if not product:
         raise NotFoundError(f"Product id {product_id} not found")
     return product
 
+"""
+    List products with pagination.
+"""
 
 def list_products(offset: int = 0, limit: int = 50) -> Tuple[List[Product], int]:
     q = Product.query.order_by(Product.id.asc())
@@ -30,7 +45,9 @@ def list_products(offset: int = 0, limit: int = 50) -> Tuple[List[Product], int]
     items = q.offset(offset).limit(limit).all()
     return items, total
 
-
+"""
+    Update product attributes and save changes.
+"""
 def update_product(product_id: int, **fields) -> Product:
     product = get_product(product_id)
     for key in ("name", "qty", "price"):
