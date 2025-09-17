@@ -1,0 +1,19 @@
+{"time": "2025-09-17 15:30:01", "level": "INFO", "logger": "routes", "message": "product.create.request"}
+{"time": "2025-09-17 15:30:01", "level": "INFO", "logger": "crud", "message": "product.created", "product_id": 1, "name": "Widget", "qty": 10, "price": 99.99}
+{"time": "2025-09-17 15:30:01", "level": "INFO", "logger": "emailer", "message": "email.sending", "product": "Widget"}
+{"time": "2025-09-17 15:30:02", "level": "INFO", "logger": "emailer", "message": "email.sent", "product_id": 1}
+
+{"time": "2025-09-17 15:32:15", "level": "INFO", "logger": "routes", "message": "product.list.request"}
+{"time": "2025-09-17 15:32:15", "level": "INFO", "logger": "crud", "message": "products.listed", "count": 1}
+
+{"time": "2025-09-17 15:35:42", "level": "INFO", "logger": "routes", "message": "product.update.request", "product_id": 1}
+{"time": "2025-09-17 15:35:42", "level": "INFO", "logger": "crud", "message": "product.updated", "product_id": 1, "new_qty": 20}
+
+{"time": "2025-09-17 15:40:10", "level": "INFO", "logger": "routes", "message": "product.delete.request", "product_id": 1}
+{"time": "2025-09-17 15:40:10", "level": "INFO", "logger": "crud", "message": "product.deleted", "product_id": 1}
+
+{"time": "2025-09-17 15:45:00", "level": "INFO", "logger": "batch_calc", "message": "batch.stock.calc.start", "mode": "threads"}
+{"time": "2025-09-17 15:45:00", "level": "INFO", "logger": "batch_calc", "message": "batch.stock.calc.finish", "total_stock": 150}
+
+{"time": "2025-09-17 15:50:20", "level": "INFO", "logger": "scraper", "message": "scraper.start", "url": "https://example.com/products"}
+{"time": "2025-09-17 15:50:23", "level": "INFO", "log}
